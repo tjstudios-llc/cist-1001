@@ -1,0 +1,9 @@
+{
+  "name": "cloud-ide-auth",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "index.js",
+  "description": "Lightweight client helper for opening the hosted Cloud IDE login experience.",
+  "files": ["index.js"],
+  "sideEffects": false
+}
