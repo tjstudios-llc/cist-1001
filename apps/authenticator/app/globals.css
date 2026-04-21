@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --surface: 248 250 252;
+  --text: 15 23 42;
+}
+
+.dark {
+  --surface: 15 23 42;
+  --text: 241 245 249;
+}
+
+body {
+  @apply bg-surface text-text;
+}
