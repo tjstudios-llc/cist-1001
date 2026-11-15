@@ -8,11 +8,10 @@ This repository contains an early multi-application starter for a collaborative,
 | --- | --- | --- |
 | `apps/web` | Vite + React project dashboard | http://localhost:5173 |
 | `apps/api` | Express API, local authentication, GitHub OAuth, and SQLite-backed project records | http://localhost:4000 |
-| `apps/authenticator` | Next.js authenticator PWA with a locally locked account vault | http://localhost:3000 |
 
 ## Requirements
 
-- Node.js 20 or newer
+- Node.js 22 or newer
 - npm
 
 Install workspace dependencies from the repository root:
@@ -44,7 +43,7 @@ npm run dev:web
 npm run dev:auth
 ```
 
-The root workspace scripts change into the corresponding application directory before starting it.
+The root workspace scripts change into the corresponding application directory before starting it. There is currently no `apps/authenticator` package in this repository, so the stale `dev:auth` script has been removed. Authentication for the IDE still needs a deliberate implementation and integration plan.
 
 ## Current limitations
 
