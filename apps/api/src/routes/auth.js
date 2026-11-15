@@ -10,9 +10,16 @@ const router = express.Router();
 
 router.use(
   session({
+    name: 'tjstudios.sid',
     secret: config.sessionSecret,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+      httpOnly: true,
+      sameSite: 'lax',
+      secure: config.isProduction,
+      maxAge: 24 * 60 * 60 * 1000
+    }
   })
 );
 router.use(passportLocal.initialize());

@@ -8,7 +8,6 @@
   ],
   "scripts": {
     "dev:web": "cd apps/web && npm run dev",
-    "dev:api": "cd apps/api && npm run dev",
-    "dev:auth": "cd apps/authenticator && npm run dev"
+    "dev:api": "cd apps/api && npm run dev"
   }
 }
