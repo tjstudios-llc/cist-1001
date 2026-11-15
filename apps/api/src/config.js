@@ -7,9 +7,21 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const sessionSecret = process.env.SESSION_SECRET;
+if (!sessionSecret) {
+  throw new Error('SESSION_SECRET is required. Generate one with: openssl rand -hex 32');
+}
+
+const allowedOrigins = (process.env.CORS_ORIGINS || 'http://localhost:5173')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 export const config = {
-  port: process.env.PORT || 4000,
-  sessionSecret: process.env.SESSION_SECRET || 'development-secret',
+  port: Number(process.env.PORT || 4000),
+  isProduction: process.env.NODE_ENV === 'production',
+  sessionSecret,
+  allowedOrigins,
   databaseUrl: process.env.DATABASE_URL || path.join(__dirname, '..', '..', 'data', 'dev.db'),
   github: {
     clientId: process.env.GITHUB_CLIENT_ID || '',
